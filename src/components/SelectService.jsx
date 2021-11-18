@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const SelectService = (props) => {
 
-    const [services, setServices] = useState([]);
-
-    useEffect(() => {
-        setServices(props.services);
-    }, []);
-
-    console.log({services});
+    const [services] = useState(props.services);
+    
     return(
-        <UISelectServiceWrapper>
+        <UISelectServiceWrapper className="select-service-wrapper">
              <option value="" selected>Select for Service</option>
              {
                  services.map((serviceItem) => {
@@ -35,8 +30,11 @@ const SelectService = (props) => {
 const UISelectServiceWrapper = styled.select`
     width: 100%;
     padding: 8px 12px;
+    background-color: #f8f8f8;
     border: none;
     border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-transform: capitalize;
     outline: none;
 `;
 

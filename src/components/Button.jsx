@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Button = (props) => {
 
-    const [btnText, setBtnText] = useState();
-    const [btnClass, setBtnClass] = useState();
-
-    useState(() => {
-        setBtnText(props.btnText);
-        setBtnClass(props.btnClass);
-    }, []);
+    const [btnText] = useState(props.btnText);
+    const [btnClass] = useState(props.btnClass);
 
     return(
         <UIButton className={`btn ${btnClass}`}>{btnText}</UIButton>
