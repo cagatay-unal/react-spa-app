@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Counter = (props) => {
 
-    const [counterType, setCounterType] = useState(props.counterType);
+    const [counterType] = useState(props.counterType);
     const [count, setCount] = useState(1);
 
     useEffect(() => {

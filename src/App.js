@@ -1,9 +1,11 @@
-import React, {Fragment} from "react";
+import React, { Fragment, useState } from "react";
 import styled from "styled-components";
-import Button from "./components/Button";
-import Counter from "./components/Counter";
-import SelectService from "./components/SelectService";
-import SpecialOfferBanner from "./components/SpecialOfferBanner";
+import Button from "./components/unitary/Button";
+import Counter from "./components/structural/Counter";
+import SelectService from "./components/structural/SelectService";
+import SpecialOfferBanner from "./components/structural/SpecialOfferBanner";
+import Title from "./components/unitary/Title";
+import ImageUpload from "./components/structural/ImageUpload";
 
 const servicesList = [
   {
@@ -55,12 +57,16 @@ const App = () => {
           <SelectService services={servicesList} />    
         </div>
         <div className="section-inner space-bottom-4">
-          <span><strong>Toplam uzunluk kaç metre ?</strong></span>
+          <Title size="h4" title="Toplam uzunluk kaç metre ?" subtitle="zorunlu subtitle" /> 
           <Counter counterType="meter" />
         </div>
-        <div className="section-inner">
-          <span><strong>Kaç parça (adet) ?</strong></span>
+        <div className="section-inner space-bottom-4">
+          <Title size="h4" title="Kaç parça (adet) ?" /> 
           <Counter counterType="quantity" />
+        </div>
+        <div className="section-inner">
+          <Title size="h4" title="Fotoğraf eklemek ister misin ?" />
+          <ImageUpload />
         </div>
       </SectionWrapper>
       <StickyRouterWrapper className="sticky-router-wrapper">
