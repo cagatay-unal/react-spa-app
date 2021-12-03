@@ -4,9 +4,10 @@ import styled from "styled-components";
 const SelectService = (props) => {
 
     const [services] = useState(props.services);
+    const [selectedService, setSelectedService] = useState(null);
     
     return(
-        <UISelectServiceWrapper className="select-service-wrapper">
+        <UISelectServiceWrapper className="select-service-wrapper" onChange={ (e) => setSelectedService(e.target.value) }>
              <option value="" selected>Select for Service</option>
              {
                  services.map((serviceItem) => {
