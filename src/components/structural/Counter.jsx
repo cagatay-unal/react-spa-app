@@ -3,25 +3,27 @@ import styled from "styled-components";
 
 const Counter = (props) => {
 
-    const [counterType] = useState(props.counterType);
-    const [count, setCount] = useState(1);
+    const [state, setState] = useState({
+        counterType: props.counterType,
+        count: 1
+    });
 
     useEffect(() => {
         
-    }, [count])
+    }, [state.count])
 
     return(
         <UICounterWrapper className="counter-wrapper">
             <div className="counter-inner">
                 <div className="counter-inner-item">
-                    <button className="counter-action-button" type="button" onClick={() => setCount(count - 1) }><i className="fas fa-minus"></i></button>
+                    <button className="counter-action-button" type="button" onClick={() => setState({ ...state, count: state.count - 1 }) }><i className="fas fa-minus"></i></button>
                 </div>
                 <div className="counter-inner-item counter-content">
-                    <span>{count}</span>
-                    <span>{ counterType === 'meter' ? 'metre' : counterType === 'quantity' ? 'adet' : null}</span>
+                    <span>{state.count}</span>
+                    <span>{ state.counterType === 'meter' ? 'metre' : state.counterType === 'quantity' ? 'adet' : null}</span>
                 </div>
                 <div className="counter-inner-item">
-                    <button className="counter-action-button" type="button" onClick={() => setCount(count + 1) }><i className="fas fa-plus"></i></button>
+                    <button className="counter-action-button" type="button" onClick={() => setState({ ...state, count: state.count + 1 }) }><i className="fas fa-plus"></i></button>
                 </div>
             </div>
         </UICounterWrapper>

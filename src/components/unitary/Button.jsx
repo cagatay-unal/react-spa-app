@@ -3,11 +3,13 @@ import styled from "styled-components";
 
 const Button = (props) => {
 
-    const [btnText] = useState(props.btnText);
-    const [btnClass] = useState(props.btnClass);
+    const [state, setState] = useState({
+        btnText: props.btnText,
+        btnClass: props.btnClass
+    });
 
     return(
-        <UIButton className={`btn ${btnClass}`}>{btnText}</UIButton>
+        <UIButton className={`btn ${state.btnClass}`}>{state.btnText}</UIButton>
     );
 }
 

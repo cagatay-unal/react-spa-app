@@ -3,28 +3,30 @@ import styled from "styled-components";
 
 const Title = (props) => {
 
-    const [size] = useState(props.size);
-    const [title] = useState(props.title);
-    const [subtitle] = useState(props.subtitle);
+    const [state, setState] = useState({
+        size: props.size,
+        title: props.title,
+        subtitle: props.subtitle
+    });
 
     return(
         <UITitle className="title-wrapper">
             <div className="title-inner">
                 {
-                    title &&
+                    state.title &&
                     <div className="title"> 
-                        { size === 'h1' && <h1>{title}</h1> }
-                        { size === 'h2' && <h2>{title}</h2> }
-                        { size === 'h3' && <h3>{title}</h3> }
-                        { size === 'h4' && <h4>{title}</h4> }
-                        { size === 'h5' && <h5>{title}</h5> }
-                        { size === 'h6' && <h6>{title}</h6> }
+                        { state.size === 'h1' && <h1>{state.title}</h1> }
+                        { state.size === 'h2' && <h2>{state.title}</h2> }
+                        { state.size === 'h3' && <h3>{state.title}</h3> }
+                        { state.size === 'h4' && <h4>{state.title}</h4> }
+                        { state.size === 'h5' && <h5>{state.title}</h5> }
+                        { state.size === 'h6' && <h6>{state.title}</h6> }
                     </div>
                 }
                 {
-                    subtitle &&
+                    state.subtitle &&
                     <div className="subtitle">
-                        <p>{subtitle}</p>
+                        <p>{state.subtitle}</p>
                     </div>
                 }
             </div>

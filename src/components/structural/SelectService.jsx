@@ -3,14 +3,16 @@ import styled from "styled-components";
 
 const SelectService = (props) => {
 
-    const [services] = useState(props.services);
-    const [selectedService, setSelectedService] = useState(null);
+    const [state, setState] = useState({
+        services: props.services,
+        selectedService: null
+    });
     
     return(
-        <UISelectServiceWrapper className="select-service-wrapper" onChange={ (e) => setSelectedService(e.target.value) }>
+        <UISelectServiceWrapper className="select-service-wrapper" onChange={ (e) => setState({ ...state, selectedService: e.target.value }) }>
              <option value="" selected>Select for Service</option>
              {
-                 services.map((serviceItem) => {
+                 state.services.map((serviceItem) => {
                      return(
                          <optgroup key={serviceItem.serviceId} label={serviceItem.serviceGroup}>
                              {

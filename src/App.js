@@ -47,6 +47,16 @@ const servicesList = [
 ]
 
 const App = () => {
+
+  const [state, setState] = useState({
+    product: {
+      serviceType: null,
+      meter: null,
+      quantity: null,
+      image: null
+    }
+  });
+
   return(
     <Fragment>
       <SectionWrapper>

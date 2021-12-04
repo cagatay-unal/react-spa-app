@@ -3,16 +3,20 @@ import styled from "styled-components";
 
 const ImageUpload = () => {
 
-    const [file, setFile] = useState(null);
-    const [uploadedImage, setUploadedImage] = useState();
+    const [state, setState] = useState({
+        file: null, 
+        uploadedImage: '', 
+        isUploaded: false
+    });
 
     const handleUploadInput = () => {
         document.querySelector('#imageUploadInputElement').click();
     }
 
     const handleUploadFile = (e) => {
-        setFile(e.target.files[0]);
-        setUploadedImage(URL.createObjectURL(e.target.files[0]));
+        setState(state => ({ ...state, file: e.target.files[0] }))
+        setState(state => ({ ...state, uploadedImage: URL.createObjectURL(e.target.files[0]) }))
+        setState(state => ({ ...state, isUploaded: true }));
     }
 
     return(
@@ -20,7 +24,7 @@ const ImageUpload = () => {
             <div className="image-upload-inner">
                 <div className="image-upload-action">
                     {
-                        file != null ? <img src={uploadedImage} alt="" /> : <button className="image-upload-action-button" type="button" onClick={ handleUploadInput }><i className="fas fa-camera"></i></button>
+                        state.isUploaded ? <img src={state.uploadedImage} alt="" /> : <button className="image-upload-action-button" type="button" onClick={ handleUploadInput }><i className="fas fa-camera"></i></button>
                     }
                     <input type="file" id="imageUploadInputElement" onChange={ handleUploadFile } accept="jpg,png" />
                 </div>
@@ -36,7 +40,7 @@ const UIImageUpload = styled.div`
         & > .image-upload-action{
             width: 100%;
             height: 150px;
-            max-height: 150px;        
+            max-height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
