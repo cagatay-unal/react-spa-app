@@ -16,14 +16,14 @@ const Counter = (props) => {
         <UICounterWrapper className="counter-wrapper">
             <div className="counter-inner">
                 <div className="counter-inner-item">
-                    <button className="counter-action-button" type="button" onClick={() => setState({ ...state, count: state.count - 1 }) }><i className="fas fa-minus"></i></button>
+                    <button className="counter-action-button" type="button" onClick={() => setState({ ...state, count: state.count > 0 ? state.count - 1 : 1 }) }><i className="fas fa-minus"></i></button>
                 </div>
                 <div className="counter-inner-item counter-content">
                     <span>{state.count}</span>
                     <span>{ state.counterType === 'meter' ? 'metre' : state.counterType === 'quantity' ? 'adet' : null}</span>
                 </div>
                 <div className="counter-inner-item">
-                    <button className="counter-action-button" type="button" onClick={() => setState({ ...state, count: state.count + 1 }) }><i className="fas fa-plus"></i></button>
+                    <button className="counter-action-button" type="button" onClick={() => setState({ ...state, count: state.count > 0 ? state.count + 1 : 1 }) }><i className="fas fa-plus"></i></button>
                 </div>
             </div>
         </UICounterWrapper>

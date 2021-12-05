@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Button = (props) => {
 
-    const [state, setState] = useState({
+    const [state] = useState({
         btnText: props.btnText,
         btnClass: props.btnClass
     });

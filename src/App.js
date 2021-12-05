@@ -7,45 +7,6 @@ import SpecialOfferBanner from "./components/structural/SpecialOfferBanner";
 import Title from "./components/unitary/Title";
 import ImageUpload from "./components/structural/ImageUpload";
 
-const servicesList = [
-  {
-    'serviceId': 1,
-    'serviceGroup': 'Antreler',
-    'serviceGroupItems': [
-      { 'serviceGroupItemId': 1, 'serviceGroupItem': 'Duvar Düzenlemeleri'},
-      { 'serviceGroupItemId': 2, 'serviceGroupItem': 'Mobilyalar'},
-      { 'serviceGroupItemId': 3, 'serviceGroupItem': 'Raf Sistemleri'},
-    ]
-  },
-  {
-    'serviceId': 2,
-    'serviceGroup': 'Mutfaklar',
-    'serviceGroupItems': [
-      { 'serviceGroupItemId': 1, 'serviceGroupItem': 'ENHET Mutfaklar'},
-      { 'serviceGroupItemId': 2, 'serviceGroupItem': 'METOD Mutfaklar'},
-      { 'serviceGroupItemId': 3, 'serviceGroupItem': 'Tezgah Tasarımları'},
-    ]
-  },
-  {
-    'serviceId': 3,
-    'serviceGroup': 'Banyolar',
-    'serviceGroupItems': [
-      { 'serviceGroupItemId': 1, 'serviceGroupItem': 'Banyo Mobilyaları'},
-      { 'serviceGroupItemId': 2, 'serviceGroupItem': 'Banyo Aksesuarları'},
-      { 'serviceGroupItemId': 3, 'serviceGroupItem': 'Banyo Yüzey Tasarımları'},
-    ]
-  },
-  {
-    'serviceId': 4,
-    'serviceGroup': 'Oturma Odaları',
-    'serviceGroupItems': [
-      { 'serviceGroupItemId': 1, 'serviceGroupItem': 'Oturma Odası Konseptleri'},
-      { 'serviceGroupItemId': 2, 'serviceGroupItem': 'Kanepeler'},
-      { 'serviceGroupItemId': 3, 'serviceGroupItem': 'Vitrin ve Konsollar'},
-    ]
-  }
-]
-
 const App = () => {
 
   const [state, setState] = useState({
@@ -54,7 +15,45 @@ const App = () => {
       meter: null,
       quantity: null,
       image: null
-    }
+    },
+    servicesList: [
+      {
+        'serviceId': 1,
+        'serviceGroup': 'Antreler',
+        'serviceGroupItems': [
+          { 'serviceGroupItemId': 1, 'serviceGroupItem': 'Duvar Düzenlemeleri'},
+          { 'serviceGroupItemId': 2, 'serviceGroupItem': 'Mobilyalar'},
+          { 'serviceGroupItemId': 3, 'serviceGroupItem': 'Raf Sistemleri'},
+        ]
+      },
+      {
+        'serviceId': 2,
+        'serviceGroup': 'Mutfaklar',
+        'serviceGroupItems': [
+          { 'serviceGroupItemId': 1, 'serviceGroupItem': 'ENHET Mutfaklar'},
+          { 'serviceGroupItemId': 2, 'serviceGroupItem': 'METOD Mutfaklar'},
+          { 'serviceGroupItemId': 3, 'serviceGroupItem': 'Tezgah Tasarımları'},
+        ]
+      },
+      {
+        'serviceId': 3,
+        'serviceGroup': 'Banyolar',
+        'serviceGroupItems': [
+          { 'serviceGroupItemId': 1, 'serviceGroupItem': 'Banyo Mobilyaları'},
+          { 'serviceGroupItemId': 2, 'serviceGroupItem': 'Banyo Aksesuarları'},
+          { 'serviceGroupItemId': 3, 'serviceGroupItem': 'Banyo Yüzey Tasarımları'},
+        ]
+      },
+      {
+        'serviceId': 4,
+        'serviceGroup': 'Oturma Odaları',
+        'serviceGroupItems': [
+          { 'serviceGroupItemId': 1, 'serviceGroupItem': 'Oturma Odası Konseptleri'},
+          { 'serviceGroupItemId': 2, 'serviceGroupItem': 'Kanepeler'},
+          { 'serviceGroupItemId': 3, 'serviceGroupItem': 'Vitrin ve Konsollar'},
+        ]
+      }
+    ]
   });
 
   return(
@@ -64,7 +63,7 @@ const App = () => {
           <SpecialOfferBanner />
         </div>
         <div className="section-inner">
-          <SelectService services={servicesList} />    
+          <SelectService services={state.servicesList} />    
         </div>
         <div className="section-inner space-bottom-4">
           <Title size="h4" title="Toplam uzunluk kaç metre ?" subtitle="zorunlu subtitle" /> 

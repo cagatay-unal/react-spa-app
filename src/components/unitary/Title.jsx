@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Title = (props) => {
 
-    const [state, setState] = useState({
+    const [state] = useState({
         size: props.size,
         title: props.title,
         subtitle: props.subtitle
